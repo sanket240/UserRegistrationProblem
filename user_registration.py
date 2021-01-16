@@ -2,6 +2,7 @@ import re
 
 FIRST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$"
 LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$"
+EMAIL_PATTERN = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z]*\\.(co|com.au|in|net|in|com.com|com|)$"
 
 
 class UserRegistration:
@@ -23,4 +24,12 @@ class UserRegistration:
             return True
         else:
             print("Invalid Last Name ")
+            return False
+
+    def email_validation(self, email_input):
+        if re.match(EMAIL_PATTERN, email_input):
+            print("Valid Email")
+            return True
+        else:
+            print("Invalid Email ")
             return False
