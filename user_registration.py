@@ -1,6 +1,7 @@
 import re
 
 FIRST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$"
+LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$"
 
 
 class UserRegistration:
@@ -14,4 +15,12 @@ class UserRegistration:
             return True
         else:
             print("Invalid first name ")
+            return False
+
+    def last_name_validation(self, last_name_input):
+        if re.match(LAST_NAME_PATTERN, last_name_input):
+            print("Valid Last name")
+            return True
+        else:
+            print("Invalid Last Name ")
             return False
