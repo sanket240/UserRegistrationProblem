@@ -1,9 +1,11 @@
 import re
-
+from exceptions import InvalidInput
 FIRST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$"
 LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{2,}$"
 EMAIL_PATTERN = "^[a-zA-z]{3}[0-9a-zA-Z\\.\\_\\-\\+]*@[a-z]*\\.(co|com.au|in|net|in|com.com|com|)$"
 PHONE_NUMBER_PATTERN = "^[0-9]{2} [0-9]{10}$"
+PASSWORD_PATTERN = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=]).{8,20}$"
+
 
 class UserRegistration:
 
@@ -16,7 +18,8 @@ class UserRegistration:
             return True
         else:
             print("Invalid first name ")
-            return False
+            raise InvalidInput(first_name_input)
+            ##return False
 
     def last_name_validation(self, last_name_input):
         if re.match(LAST_NAME_PATTERN, last_name_input):
@@ -34,7 +37,6 @@ class UserRegistration:
             print("Invalid Email ")
             return False
 
-
     def phone_number_validation(self, phone_number_input):
         if re.match(PHONE_NUMBER_PATTERN, phone_number_input):
             print("Valid Phone")
@@ -42,3 +44,11 @@ class UserRegistration:
         else:
             print("Invalid Phone ")
             return False
+
+    def password_validation(self, password_input):
+        if re.match(PASSWORD_PATTERN, password_input):
+            print("Valid Password")
+            return True
+        else:
+            print("Invalid Password ")
+            return True

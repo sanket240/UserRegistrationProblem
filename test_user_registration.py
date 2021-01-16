@@ -24,3 +24,8 @@ def test_email(actual, expected, user_register):
                                              ("91 7020665302", True), ("91 9421359551", True)])
 def test_phone_number(actual, expected, user_register):
     assert user_register.phone_number_validation(actual) == expected
+
+
+@pytest.mark.parametrize("actual,expected", [("Sanket@123", True), ("sanketD%123", True), ("9422sankeyD&1", True)])
+def test_password(actual, expected, user_register):
+    assert user_register.password_validation(actual) == expected

@@ -10,3 +10,5 @@ if __name__ == '__main__':
     user_reg.email_validation(email_input)
     phone_input = input("Enter Phone:")
     user_reg.phone_number_validation(phone_input)
+    password_input = input("Enter Password:")
+    user_reg.password_validation(password_input)
