@@ -18,3 +18,9 @@ def test_last_name(actual, expected, user_register):
                           ("msdhoni7@yahoo.com", True), ("shubhamshinde@google.in", True)])
 def test_email(actual, expected, user_register):
     assert user_register.email_validation(actual) == expected
+
+
+@pytest.mark.parametrize("actual,expected", [("91 9422484996", True), ("919422484996", False), ("9422484996", False),
+                                             ("91 7020665302", True), ("91 9421359551", True)])
+def test_phone_number(actual, expected, user_register):
+    assert user_register.phone_number_validation(actual) == expected
